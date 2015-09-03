@@ -1,0 +1,43 @@
+#N canvas 411 134 693 505 10;
+#X declare -lib mrpeach;
+#X obj 61 49 import mrpeach;
+#X floatatom 424 314 3 0 0 0 - - -;
+#X floatatom 451 314 3 0 0 0 - - -;
+#X floatatom 478 314 3 0 0 0 - - -;
+#X floatatom 505 314 3 0 0 0 - - -;
+#X floatatom 532 315 5 0 0 0 - - -;
+#X obj 424 288 unpack 0 0 0 0 0;
+#X msg 201 100 status;
+#X floatatom 303 235 9 0 0 0 - - -;
+#X obj 484 261 tgl 15 0 empty empty empty 17 7 0 10 -4034 -1 -1 0 1
+;
+#X floatatom 363 261 9 0 0 0 - - -;
+#X text 0 100 get status on right outlet:;
+#X text 196 235 bytes received:;
+#X text 211 259 total bytes received:;
+#X text 381 313 from:;
+#X text 303 88 Specify a multicast address (from 224.0.0.0 to 239.255.255.255)
+to use multicasting;
+#X obj 201 304 spigot;
+#X obj 240 284 tgl 15 0 empty empty enable_print: -77 8 0 10 -4034
+-1 -1 0 1;
+#X obj 201 329 print received;
+#X obj 303 202 route received total from multicast;
+#X text 286 137 change port to listen on;
+#X msg 212 139 port 12345;
+#X obj 201 170 udpreceive 12345;
+#X connect 6 0 1 0;
+#X connect 6 1 2 0;
+#X connect 6 2 3 0;
+#X connect 6 3 4 0;
+#X connect 6 4 5 0;
+#X connect 7 0 22 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 1;
+#X connect 19 0 8 0;
+#X connect 19 1 10 0;
+#X connect 19 2 6 0;
+#X connect 19 3 9 0;
+#X connect 21 0 22 0;
+#X connect 22 0 16 0;
+#X connect 22 1 19 0;
